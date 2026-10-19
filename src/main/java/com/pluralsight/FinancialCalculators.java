@@ -33,13 +33,14 @@ public class FinancialCalculators {
         double monthlyRate = interestRate / 12;
         // Calculate the monthly payment of the loan
         // M = P × (i × (1 + i)^n) / ((1 + i)^n - 1)
-        double finalMonthlyPayment = principal *
+        double monthlyPayment = principal *
                 (monthlyRate * Math.pow(1 + monthlyRate,totalMonths)
                         / Math.pow(1 + monthlyRate,totalMonths) - 1 );
-
-        double interest = principal * interestRate * loanLength;
+        // Calculate the total interest
+        // (TotalPayment - Original Principal)
+        double totalInterest = (monthlyPayment * totalMonths) - principal;
 
         // Display the information to the user on the terminal
-        System.out.printf("[Total Interest] = %.2f%n [Monthly Payment] = %f.2f%n",interest,finalMonthlyPayment);
+        System.out.printf("[Total Interest] = %.2f%n [Monthly Payment] = %f.2f%n",totalInterest,monthlyPayment);
     }
 }
