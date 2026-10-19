@@ -28,11 +28,14 @@ public class FinancialCalculators {
         int loanLength = scanner.nextInt();
 
         // Calculate the number of payments in months for the loan's length
-        int monthlyPayments = loanLength * 12;
+        int totalMonths = loanLength * 12;
         // Calculate the interest rate in months, not years
-        double monthlyInterestRate = interestRate / 12;
+        double monthlyRate = interestRate / 12;
         // Calculate the monthly payment of the loan
-        double finalMonthlyPayment = principal * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate,monthlyPayments));
+        // M = P × (i × (1 + i)^n) / ((1 + i)^n - 1)
+        double finalMonthlyPayment = principal *
+                (monthlyRate * Math.pow(1 + monthlyRate,totalMonths)
+                        / Math.pow(1 + monthlyRate,totalMonths) - 1 );
 
         double interest = principal * interestRate * loanLength;
 
