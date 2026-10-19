@@ -10,13 +10,13 @@ public class FinancialCalculators {
 
         // [Calculator #1] (Mortgage calculator)
 
-        // Requesting the principal of the loan
+        // Prompting the principal of the loan
         System.out.println("Enter the principal of your loan: ");
         double principal = scanner.nextDouble();
-        // Requesting interest rate. (Divided by 100 to make it a percent)
+        // Prompting interest rate. (Divided by 100 to make it a percent)
         System.out.println("Enter the interest rate: ");
         double interestRate = scanner.nextDouble() / 100;
-        // Getting the loan length in years
+        // Prompting the loan length in years
         System.out.println("Enter the loan length (in years): ");
         double loanLength = scanner.nextInt();
 
@@ -25,10 +25,16 @@ public class FinancialCalculators {
 
         // [Calculator #2] (Future value of deposits)
 
+        // Prompting for the deposit
+        // Prompting for the annual interest rate
+        // Prompting for the loan length
+
+        // Close the scanner when we're done with it
+        scanner.close();
     }
 
     // Calculates the interest and monthly payments on a mortgage.
-    public static void MortgageCalculator(double principal,double interestRate,double loanLength) {
+    public static void MortgageCalculator(double principal, double interestRate, double loanLength) {
         // Calculate the number of payments in months for the loan's length
         double totalMonths = loanLength * 12;
         // Calculate the interest rate in months, not years
@@ -44,5 +50,10 @@ public class FinancialCalculators {
 
         // Display the information to the user on the terminal
         System.out.printf("   [Total Interest] = %.2f%n   [Monthly Payment] = %.2f%n",totalInterest,monthlyPayment);
+    }
+
+    // Calculate the future interest of a one time deposit.
+    public static void CalculateFutureInterest(double deposit, double annualInterestRate, double years) {
+
     }
 }
