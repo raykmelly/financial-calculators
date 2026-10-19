@@ -8,7 +8,7 @@ public class FinancialCalculators {
         // Setup, the methods will all use this one scanner
         Scanner scanner = new Scanner(System.in);
 
-        // [Calculator #1] (Mortgage calculator)
+        // [Calculator #1] (Mortgage calculator) -------------------------------------------------
 
         // Prompting the principal of the loan
         System.out.println("Enter the principal of your loan: ");
@@ -20,20 +20,29 @@ public class FinancialCalculators {
         System.out.println("Enter the loan length (in years): ");
         double loanLength = scanner.nextInt();
 
-        // Call the MortgageCalculator method and print the: Monthly payments & Total interest
+        // Call the MortgageCalculator() method and print: Monthly payments & Total interest
         MortgageCalculator(principal,interestRate,loanLength);
 
-        // [Calculator #2] (Future value of deposits)
+        // [Calculator #2] (Future value of deposits) ---------------------------------------------
 
         // Prompting for the deposit
+        System.out.println("Enter your deposit: ");
+        double deposit = scanner.nextDouble();
         // Prompting for the annual interest rate
+        System.out.println("Enter your annual interest rate: ");
+        double annualInterestRate = scanner.nextDouble();
         // Prompting for the loan length
+        System.out.println("Enter the loans length (in years): ");
+        double years = scanner.nextDouble();
+
+        // Call the CalculateFutureInterest() method and print: future value of deposit, total interest earned.
+        CalculateFutureInterest(deposit,annualInterestRate,years);
 
         // Close the scanner when we're done with it
         scanner.close();
     }
 
-    // Calculates the interest and monthly payments on a mortgage.
+    // Calculates the interest and monthly payments on a mortgage. ------------------------------------
     public static void MortgageCalculator(double principal, double interestRate, double loanLength) {
         // Calculate the number of payments in months for the loan's length
         double totalMonths = loanLength * 12;
